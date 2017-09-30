@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loading</title>
+    <link rel="shortcut icon" href="img/folder.ico">
+</head>
+<body style="width: 90%; height: 90vh; text-align: center; vertical-align: middle">
+
+<img id="loading" src="img/loading.gif" style="top: 40%; position:absolute;">
+
+<script>
+    console.debug("window.location.search = " + window.location.search);
+    var nextPage = window.location.search;
+    nextPage = nextPage.replace(/^\?/, "");
+    console.debug("nextPage = " + nextPage);
+
+    setTimeout(function() {
+        console.debug("Hiding loading image")
+        var loading = document.getElementById("loading");
+        loading.parentNode.removeChild(loading);
+
+        window.location.href = nextPage;
+    }, 1000);
+
+</script>
+</body>
+</html>
